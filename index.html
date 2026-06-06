@@ -20,16 +20,16 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px; margin: 0;
+            padding: 6px 4px; margin: 0;
             min-height: 100vh;
         }
         .container {
             background: var(--panel);
-            padding: 25px; border-radius: 20px;
+            padding: 12px; border-radius: 16px;
             width: 100%; max-width: 600px;
             border: 1px solid #4c1d95;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            margin-bottom: 30px;
+            margin-bottom: 10px;
         }
         h1 { 
             text-align: center; 
@@ -39,25 +39,20 @@
             margin-top: 0;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
         }
-        
         input[type="text"], select {
             width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #4c1d95;
             background: #1e1b4b; color: white; margin-bottom: 15px; font-size: 1rem; box-sizing: border-box;
         }
         label { display: block; margin-bottom: 8px; font-size: 0.8rem; color: var(--subtext); font-weight: bold; text-transform: uppercase;}
-
         .formatting-group {
             display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 20px;
         }
         @media (min-width: 480px) { .formatting-group { grid-template-columns: repeat(4, 1fr); } }
-        
         .format-btn {
             background: var(--card); border: 1px solid #ffffff33; color: var(--text);
             padding: 10px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 0.8rem; transition: 0.2s;
         }
         .format-btn.active { background: var(--accent); color: #1e1b4b; border-color: var(--accent); }
-
-        /* Estilos para Presets */
         .presets-group {
             display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; justify-content: center;
         }
@@ -66,29 +61,47 @@
             color: var(--accent); font-size: 0.75rem; cursor: pointer; font-weight: bold; transition: 0.3s;
         }
         .preset-btn:hover { background: var(--accent); color: #1e1b4b; }
-
         .color-list-container { display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; }
         .color-item { display: flex; align-items: center; background: var(--card); padding: 8px; border-radius: 10px; }
         .color-block { flex-grow: 1; height: 35px; border-radius: 6px; border: 1px solid #fff3; cursor: pointer; margin: 0 10px; display: flex; align-items: center; padding-left: 10px; font-family: monospace; text-shadow: 1px 1px 1px #000; font-size: 0.9rem; }
         .add-color-btn { background: rgba(167, 139, 250, 0.1); border: 1px dashed var(--accent); color: var(--accent); padding: 10px; width: 100%; border-radius: 10px; cursor: pointer; font-weight: bold; margin-bottom: 20px; }
         .remove-btn { background: none; border: none; color: #ff5555; font-size: 1.5rem; cursor: pointer; padding: 0 10px; }
-
         .preview-area { background: #000; padding: 25px; border-radius: 15px; text-align: center; font-size: 1.6rem; min-height: 40px; border: 1px solid #2d2669; margin-bottom: 15px; word-wrap: break-word; }
-        
         .output-container { position: relative; }
         .output-box { background: #0c0a09; padding: 15px; border-radius: 10px; font-family: monospace; color: #4ade80; border: 1px solid #4c1d95; cursor: pointer; word-break: break-all; width: 100%; box-sizing: border-box; min-height: 50px; }
         .copy-toast { position: absolute; top: -35px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #1e1b4b; padding: 5px 15px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; opacity: 0; transition: 0.3s; pointer-events: none; z-index: 10; }
         .copy-toast.show { opacity: 1; top: -45px; }
-
         .footer { margin-top: auto; padding: 20px; color: var(--subtext); font-size: 0.85rem; letter-spacing: 0.5px; opacity: 0.7; }
 
+        /* Modal */
         .modal-overlay { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7); z-index: 1000; backdrop-filter: blur(3px); }
         .modal { display: none; position: fixed; top:50%; left:50%; transform: translate(-50%, -50%); background: var(--panel); padding: 20px; border-radius: 20px; z-index: 1001; width: 90%; max-width: 320px; border: 2px solid var(--accent); box-shadow: 0 0 20px rgba(0,0,0,0.5); }
         .picker-container { display: flex; gap: 10px; height: 150px; margin-bottom: 15px; touch-action: none; }
         .hs-map { flex: 1; position: relative; background: linear-gradient(to top, #fff, transparent), linear-gradient(to right, #f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%); border-radius: 5px; border: 1px solid #fff2; }
         .v-bar { width: 30px; background: linear-gradient(to bottom, #fff, #000); border-radius: 5px; position: relative; border: 1px solid #fff2; }
         .cursor { position: absolute; width: 12px; height: 12px; border: 2px solid white; border-radius: 50%; transform: translate(-50%, -50%); pointer-events: none; box-shadow: 0 0 4px #000; }
-        .hex-input-manual { width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--accent); color: white; text-align: center; border-radius: 8px; margin-bottom: 15px; font-family: monospace; font-size: 1.1rem; }
+        .hex-input-manual { width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--accent); color: white; text-align: center; border-radius: 8px; margin-bottom: 15px; font-family: monospace; font-size: 1.1rem; box-sizing: border-box; }
+
+        /* Preview dentro del modal */
+        .modal-preview-label { font-size: 0.75rem; color: var(--subtext); font-weight: bold; text-transform: uppercase; text-align: center; margin-bottom: 6px; }
+        .modal-preview-bar {
+            width: 100%; height: 36px; border-radius: 8px;
+            margin-bottom: 8px;
+            border: 1px solid #ffffff22;
+            box-sizing: border-box;
+        }
+        .modal-preview-text {
+            background: #000;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.2rem;
+            padding: 6px 10px;
+            min-height: 36px;
+            word-break: break-all;
+            margin-bottom: 15px;
+            border: 1px solid #ffffff11;
+        }
+
         .close-modal { width: 100%; padding: 12px; background: var(--accent); border: none; border-radius: 10px; color: #1e1b4b; font-weight: bold; cursor: pointer; text-transform: uppercase; }
     </style>
 </head>
@@ -153,8 +166,13 @@
             <div id="vCursor" class="cursor" style="left: 50%"></div>
         </div>
     </div>
-    <label style="text-align: center; display: block;">Código HEX manual</label>
+    <label style="text-align: center; display: block; margin-bottom: 6px;">Código HEX manual</label>
     <input type="text" id="hexManual" class="hex-input-manual" maxlength="7">
+
+    <div class="modal-preview-label">Previsualización del degradado</div>
+    <div id="modalPreviewBar" class="modal-preview-bar"></div>
+    <div id="modalPreviewText" class="modal-preview-text"></div>
+
     <button class="close-modal" onclick="closePicker()">Guardar Color</button>
 </div>
 
@@ -180,7 +198,6 @@
         update();
     }
 
-    // Nueva función para aplicar preajustes
     function applyPreset(presetColors) {
         colors = [...presetColors];
         renderColors();
@@ -207,6 +224,29 @@
         renderColors();
     }
 
+    // Actualiza la barra y el texto de preview dentro del modal
+    function updateModalPreview() {
+        const text = document.getElementById('inputText').value || "Ejemplo";
+
+        // Barra de degradado usando CSS gradient con todos los colores actuales
+        const stops = colors.join(', ');
+        document.getElementById('modalPreviewBar').style.background = `linear-gradient(to right, ${stops})`;
+
+        // Texto con degradado letra a letra (igual que el preview principal)
+        let styles = (formats.b ? 'font-weight:bold;' : '')
+                   + (formats.i ? 'font-style:italic;' : '')
+                   + (formats.u ? 'text-decoration:underline;' : '')
+                   + (formats.s ? 'text-decoration:line-through;' : '');
+        let html = '';
+        for (let i = 0; i < text.length; i++) {
+            const ratio = text.length > 1 ? i / (text.length - 1) : 0;
+            const rgb = interpolate(ratio);
+            const hex = rgbToHex(rgb.r, rgb.g, rgb.b);
+            html += `<span style="color:${hex};${styles}">${text[i]}</span>`;
+        }
+        document.getElementById('modalPreviewText').innerHTML = html;
+    }
+
     function updatePickerUI(skipManual = false) {
         document.getElementById('hsCursor').style.left = (hsv.h/360*100) + '%';
         document.getElementById('hsCursor').style.top = (100 - hsv.s) + '%';
@@ -215,6 +255,7 @@
         const hex = rgbToHex(rgb.r, rgb.g, rgb.b);
         colors[activeIndex] = hex;
         if(!skipManual) document.getElementById('hexManual').value = hex.toUpperCase();
+        updateModalPreview();
         update();
     }
 
@@ -231,7 +272,10 @@
             else { hsv.v = (1 - y) * 100; }
             updatePickerUI();
         };
-        const stop = () => { window.removeEventListener('mousemove', move); window.removeEventListener('mouseup', stop); window.removeEventListener('touchmove', move); window.removeEventListener('touchend', stop); };
+        const stop = () => {
+            window.removeEventListener('mousemove', move); window.removeEventListener('mouseup', stop);
+            window.removeEventListener('touchmove', move); window.removeEventListener('touchend', stop);
+        };
         window.addEventListener('mousemove', move); window.addEventListener('mouseup', stop);
         window.addEventListener('touchmove', move, {passive: false}); window.addEventListener('touchend', stop);
         move(e);
@@ -248,6 +292,23 @@
         }
     };
 
+    function buildMiniMessage(text) {
+        const gradientTag = '<gradient:' + colors.map(c => c.toLowerCase()).join(':') + '>';
+        const gradientClose = '</gradient>';
+        const mmOpen  = (formats.b ? '<bold>'          : '')
+                      + (formats.i ? '<italic>'        : '')
+                      + (formats.u ? '<underlined>'    : '')
+                      + (formats.s ? '<strikethrough>' : '');
+        const mmClose = (formats.s ? '</strikethrough>' : '')
+                      + (formats.u ? '</underlined>'    : '')
+                      + (formats.i ? '</italic>'        : '')
+                      + (formats.b ? '</bold>'          : '');
+        if (colors.length === 1) {
+            return `<color:${colors[0].toLowerCase()}>${mmOpen}${text}${mmClose}</color:${colors[0].toLowerCase()}>`;
+        }
+        return `${gradientTag}${mmOpen}${text}${mmClose}${gradientClose}`;
+    }
+
     function update() {
         const text = document.getElementById('inputText').value || "Ejemplo";
         const mode = document.getElementById('formatSelect').value;
@@ -260,15 +321,21 @@
             const rgb = interpolate(ratio);
             const hex = rgbToHex(rgb.r, rgb.g, rgb.b);
             html += `<span style="color:${hex};${styles}">${text[i]}</span>`;
-            
             if(mode === 'minehostilnick') code += `${hex}${mcCodes}${text[i]}`;
-            else if(mode === 'legacy') code += '&x' + hex.substring(1).split('').map(c=>'&'+c).join('') + mcCodes + text[i];
-            else if(mode === 'extra') code += `&#${hex.substring(1)}${mcCodes}${text[i]}`;
-            else if(mode === 'minimessage') code += `<${hex}>${text[i]}`;
-            else if(mode === 'json') jsonArr.push({"text":text[i], "color":hex, "bold":formats.b, "italic":formats.i, "underlined":formats.u, "strikethrough":formats.s});
+            else if(mode === 'legacy')    code += '&x' + hex.substring(1).split('').map(c=>'&'+c).join('') + mcCodes + text[i];
+            else if(mode === 'extra')     code += `&#${hex.substring(1)}${mcCodes}${text[i]}`;
+            else if(mode === 'json')      jsonArr.push({"text":text[i], "color":hex, "bold":formats.b, "italic":formats.i, "underlined":formats.u, "strikethrough":formats.s});
         }
+
         document.getElementById('preview').innerHTML = html;
-        document.getElementById('output').innerText = (mode === 'json') ? JSON.stringify(["", ...jsonArr]) : code;
+
+        if (mode === 'minimessage') {
+            document.getElementById('output').innerText = buildMiniMessage(text);
+        } else if (mode === 'json') {
+            document.getElementById('output').innerText = JSON.stringify(["", ...jsonArr]);
+        } else {
+            document.getElementById('output').innerText = code;
+        }
     }
 
     function copyText() {
